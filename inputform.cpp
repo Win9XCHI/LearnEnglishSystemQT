@@ -15,7 +15,12 @@ InputForm::~InputForm()
 }
 
 void InputForm::on_pushButton_clicked() {
-    emit sendData(ui->lineEdit->text());
+    QString Login = ui->lineEdit->text();
+
+    DB->SELECT("*", "User", "Login = '" + Login + "'");
+    //qDebug() << DB->LastError();
+
+    emit sendData(DB->GetUser());
 }
 
 void InputForm::SetDB(ProjectDB *DBMain) {

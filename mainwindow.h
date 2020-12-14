@@ -23,9 +23,9 @@ public:
     ~MainWindow();
 
 public slots:
-    void recieveInput(QString str);
+    void recieveInput(User);
     void recieveSchedule(QString str);
-    void recieveSetting(QString str);
+    void recieveSetting(User);
     void recieveTask(QString str);
 
 private slots:
@@ -38,7 +38,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    int User_id;
+    User ObjectUser;
     ProjectDB *DB;
 
     InputForm *Input;

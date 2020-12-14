@@ -6,8 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
-    User_id = -1;
-    DB = new ProjectDB("DB_English");
+    DB = new ProjectDB("DB.db");
     DB->createConnection();
 
     Input = new InputForm();
@@ -16,9 +15,9 @@ MainWindow::MainWindow(QWidget *parent)
     Task = new TaskForm();
     Warning = new WarningForm();
 
-    connect(Input, SIGNAL(sendData(QString)), this, SLOT(recieveInput(QString)));
+    connect(Input, SIGNAL(sendData(User)), this, SLOT(recieveInput(User)));
     connect(Schedule, SIGNAL(sendData(QString)), this, SLOT(recieveSchedule(QString)));
-    connect(Setting, SIGNAL(sendData(QString)), this, SLOT(recieveSetting(QString)));
+    connect(Setting, SIGNAL(sendData(User)), this, SLOT(recieveSetting(User)));
     connect(Task, SIGNAL(sendData(QString)), this, SLOT(recieveTask(QString)));
 
 }
@@ -34,17 +33,25 @@ MainWindow::~MainWindow() {
 }
 
 
-void MainWindow::recieveInput(QString str) {
+void MainWindow::recieveInput(User object) {
 
-    if (str != "") {
-        User_id = str.toInt();
+    if (object.GetId() != 0) {
+        ObjectUser = object;
+        ui->label_8->setText("User: " + object.GetName());
+        ui->label_14->setText("");
+        Input->hide();
+
+        //statusBar
+
+    } else {
+        ui->label_14->setText("Invalid login");
     }
 }
 
 void MainWindow::recieveSchedule(QString str) {
 
 }
-void MainWindow::recieveSetting(QString str) {
+void MainWindow::recieveSetting(User object) {
 
 }
 void MainWindow::recieveTask(QString str) {

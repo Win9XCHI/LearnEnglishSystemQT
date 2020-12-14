@@ -26,6 +26,7 @@ SOURCES += \
     scheduleform.cpp \
     settingform.cpp \
     taskform.cpp \
+    user.cpp \
     warningform.cpp
 
 HEADERS += \
@@ -37,6 +38,7 @@ HEADERS += \
     scheduleform.h \
     settingform.h \
     taskform.h \
+    user.h \
     warningform.h
 
 FORMS += \

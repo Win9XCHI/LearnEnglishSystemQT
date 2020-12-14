@@ -18,7 +18,7 @@ public:
     void SetDB(ProjectDB*);
 
 signals:
-    void sendData(QString str);
+    void sendData(User);
 
 private:
     Ui::InputForm *ui;

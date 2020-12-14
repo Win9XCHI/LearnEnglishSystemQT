@@ -2,6 +2,7 @@
 #define SCHEDULEFORM_H
 
 #include <QWidget>
+#include "projectdb.h"
 
 namespace Ui {
 class ScheduleForm;
@@ -14,9 +15,11 @@ class ScheduleForm : public QWidget
 public:
     explicit ScheduleForm(QWidget *parent = nullptr);
     ~ScheduleForm();
+    void SetDB(ProjectDB*);
 
 private:
     Ui::ScheduleForm *ui;
+    ProjectDB *DB;
 };
 
 #endif // SCHEDULEFORM_H

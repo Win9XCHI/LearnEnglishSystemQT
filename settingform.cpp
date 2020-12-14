@@ -12,3 +12,7 @@ SettingForm::~SettingForm()
 {
     delete ui;
 }
+
+void SettingForm::SetDB(ProjectDB *DBMain) {
+    DB = DBMain;
+}

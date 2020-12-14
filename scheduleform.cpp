@@ -12,3 +12,7 @@ ScheduleForm::~ScheduleForm()
 {
     delete ui;
 }
+
+void ScheduleForm::SetDB(ProjectDB *DBMain) {
+    DB = DBMain;
+}
